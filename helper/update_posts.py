@@ -12,14 +12,14 @@ htmls = {}
 
 def create_html(md_filename) :
     html_filename = ".".join(md_filename.split('.')[:-1]) + ".html"
-    md = ""
+    md = []
 
     timelabel = html_filename.split('-')[0]
     title = ""
 
     with open(posts_dir + "/" + md_filename, 'r') as f :
         for line in f :
-            md += line + "\n"
+            md.append(line)
             if title == "" and line.strip()[0] == '#' :
                 title = line[1:].strip()
     print(title, "-", md)
@@ -49,7 +49,9 @@ def create_html(md_filename) :
         var md = new Remarkable();
         ''')
 
-        f.write("document.getElementById(\"post\").innerHTML = md.render(\'%s\')" % md)
+        for line in md :
+            f.write("document.getElementById(\"post\").innerHTML = md.render(\'%s\')" % line)
+
         f.write(r'''</script>
         <div id="footer"></div>
         </body>
