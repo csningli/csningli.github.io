@@ -8,7 +8,7 @@ posts_dir = "../posts"
 htmls = {}
 
 def update_posts() :
-    print(htmls)
+    # print(htmls)
     years = {}
     for name in sorted(htmls.keys(), reverse = True) :
         if name[:4] not in years.keys() :
