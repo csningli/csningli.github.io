@@ -3,7 +3,8 @@
         <link rel="icon" href="../res/icon.png">
         <style>body{width:960px; margin:0 auto;}</style>
         <meta charset="utf-8" />
-        <title>Posts</title>
+        <title>Test Markdown Post</title>
+
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <script src="//cdn.jsdelivr.net/remarkable/1.7.1/remarkable.min.js"></script>
         <script>
@@ -16,11 +17,13 @@
 
         <body>
         <div id="header"></div>
+        <p id="time"></p>
         <p id="post"></p>
 
         <script>
         var md = new Remarkable();
-        document.getElementById("post").innerHTML += md.render('# Test Markdown Post');
+        document.getElementById("time").innerHTML = "[Posted on: test2.html]"
+document.getElementById("post").innerHTML += md.render('# Test Markdown Post');
 </script>
         <div id="footer"></div>
         </body>
