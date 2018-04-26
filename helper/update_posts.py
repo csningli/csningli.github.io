@@ -49,7 +49,7 @@ def create_html(md_filename) :
         var md = new Remarkable();
         ''')
 
-        f.write("document.getElementById(\"post\").innerHTML = md.render(%s)" % md)
+        f.write("document.getElementById(\"post\").innerHTML = md.render(\"%s\")" % md)
         f.write(r'''</script>
         <div id="footer"></div>
         </body>
