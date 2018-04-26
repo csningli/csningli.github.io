@@ -50,7 +50,7 @@ def create_html(md_filename) :
         ''')
 
         for line in md :
-            f.write("document.getElementById(\"post\").innerHTML = md.render(\'%s\')" % line)
+            f.write("document.getElementById(\"post\").innerHTML += md.render(\'%s\')" % line.strip())
 
         f.write(r'''</script>
         <div id="footer"></div>
