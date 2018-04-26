@@ -96,7 +96,7 @@ def create_html(md_filename) :
 
         f.write("document.getElementById(\"time\").innerHTML = \"[Posted on: %s]\"\n" % timelabel)
         for line in md :
-            f.write("document.getElementById(\"post\").innerHTML += md.render(\'%s\');\n" % line.strip())
+            f.write("document.getElementById(\"post\").innerHTML += md.render(\'%s\');\n" % line.strip('\n'))
 
         f.write(r'''</script>
         <div id="footer"></div>
