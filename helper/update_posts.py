@@ -26,7 +26,7 @@ def create_html(md_filename) :
     with open(posts_dir + "/" + html_filename, 'w') as f :
         f.write(r'''<html>
         <head>
-        <link rel="icon" href="res/icon.png">
+        <link rel="icon" href="../res/icon.png">
         <style>body{width:960px; margin:0 auto;}</style>
         <meta charset="utf-8" />
         <title>Posts</title>
@@ -34,8 +34,8 @@ def create_html(md_filename) :
         <script src="//cdn.jsdelivr.net/remarkable/1.7.1/remarkable.min.js"></script>
         <script>
         $(function(){
-          $("#header").load("header.html");
-          $("#footer").load("footer.html");
+          $("#header").load("../header.html");
+          $("#footer").load("../footer.html");
         });
         </script>
         </head>
