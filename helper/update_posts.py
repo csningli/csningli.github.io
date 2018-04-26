@@ -9,6 +9,12 @@ htmls = {}
 
 def update_posts() :
     print(htmls)
+    years = {}
+    for name in sorted(htmls.keys(), reverse = True) :
+        if name[:4] not in years.keys() :
+            years[name[:4]] = []
+        years[name[:4]].append((name, htmls[name]))
+
     with open("../posts.html", 'w') as f :
         f.write(r'''<html>
         <head>
@@ -30,14 +36,17 @@ def update_posts() :
         <br>
         <h1>Posts</h1>
         <br>
-        <ul>
         ''')
 
-        for name, html in htmls.items() :
-            f.write("<li><a href=\"posts/%s\">%s</a></li>\n" % (html, name))
+        for name in sorted(years.keys(), reverse = True) :
+            f.write("<h2>%s</h2>\n" % name)
+            f.write("<ul>\n")
+            for item in years[name] :
+                f.write("<li><a href=\"posts/%s\">%s</a></li>\n" % (item[0], item[1]))
+            f.write("</ul>\n")
 
-        f.write(r'''</ul>
-        <div id="footer"></div>
+
+        f.write(r'''<div id="footer"></div>
         </body>
         </html>''')
 
