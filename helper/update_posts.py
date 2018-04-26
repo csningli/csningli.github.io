@@ -19,9 +19,10 @@ def create_html(md_filename) :
 
     with open(posts_dir + "/" + md_filename, 'r') as f :
         for line in f :
+            md += line + "\n"
             if title == "" and line.strip()[0] == '#' :
                 title = line[1:].strip()
-        md = f.read()
+    print(title, "-", md)
 
     with open(posts_dir + "/" + html_filename, 'w') as f :
         f.write(r'''<html>
