@@ -7,7 +7,39 @@ import sys, os
 posts_dir = "../posts"
 htmls = {}
 
-# def update_posts() :
+def update_posts() :
+    print(htmls)
+    with open("../posts.html", 'w') as f :
+        f.write(r'''<html>
+        <head>
+        <link rel="icon" href="../res/icon.png">
+        <style>body{width:960px; margin:0 auto;}</style>
+        <meta charset="utf-8" />
+        <title>Posts</title>
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script>
+        $(function(){
+          $("#header").load("header.html");
+          $("#footer").load("footer.html");
+        });
+        </script>
+        </head>
+
+        <body>
+        <div id="header"></div>
+        <br>
+        <h1>Posts</h1>
+        <br>
+        <ul>
+        ''')
+
+        for name, html in htmls.items() :
+            f.write("<li><a href=\"posts/%s\">%s</a></li>\n" % (html, name))
+
+        f.write(r'''</ul>
+        <div id="footer"></div>
+        </body>
+        </html>''')
 
 
 def create_html(md_filename) :
@@ -22,7 +54,7 @@ def create_html(md_filename) :
             md.append(line)
             if title == "" and line.strip()[0] == '#' :
                 title = line[1:].strip()
-    print(title, "-", md)
+    print(timelabel, "-", title, "-", md)
 
     with open(posts_dir + "/" + html_filename, 'w') as f :
         f.write(r'''<html>
@@ -74,3 +106,4 @@ def check_posts() :
 
 if __name__ == "__main__" :
     check_posts()
+    update_posts()
