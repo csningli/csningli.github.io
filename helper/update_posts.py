@@ -42,7 +42,7 @@ def update_posts() :
             f.write("<h2>%s</h2>\n" % name)
             f.write("<ul>\n")
             for item in years[name] :
-                f.write("<li><a href=\"posts/%s\">%s</a></li>\n" % (item[0], item[1]))
+                f.write("<li><a href=\"posts/%s\">%s</a></li>\n" % (item[1], item[0]))
             f.write("</ul>\n")
 
 
