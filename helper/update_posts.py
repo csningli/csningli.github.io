@@ -43,7 +43,7 @@ def create_html(md_filename) :
 
         <body>
         <div id="header"></div>
-        <div id="post"></div>
+        <p id="post"></p>
 
         <script>
         var md = new Remarkable();
