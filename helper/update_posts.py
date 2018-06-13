@@ -63,7 +63,7 @@ def create_html(md_filename) :
             md.append(line)
             if title == "" and line.strip()[0] == '#' :
                 title = line[1:].strip()
-    print(timelabel, "-", title, "-", md)
+    # print(timelabel, "-", title, "-", md)
 
     with open(posts_dir + "/" + html_filename, 'w') as f :
         f.write(r'''<html>
@@ -116,3 +116,4 @@ def check_posts() :
 if __name__ == "__main__" :
     check_posts()
     update_posts()
+    print("Done.")
