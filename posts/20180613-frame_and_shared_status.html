@@ -1,0 +1,64 @@
+<html>
+        <head>
+        <link rel="icon" href="../res/icon.png">
+        <style>body{width:960px; margin:0 auto;}</style>
+        <meta charset="utf-8" />
+        <title>Use "Frame" and Shared Status to Organize A System</title>
+
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//cdn.jsdelivr.net/remarkable/1.7.1/remarkable.min.js"></script>
+        <script>
+        $(function(){
+          $("#header").load("../header.html");
+          $("#footer").load("../footer.html");
+        });
+        </script>
+        </head>
+
+        <body>
+        <div id="header"></div>
+        <p id="time"></p>
+        <p id="post"></p>
+
+        <script>
+        var md = new Remarkable();
+        document.getElementById("time").innerHTML = "[Posted on: 20180613]"
+document.getElementById("post").innerHTML += md.render('# Use "Frame" and Shared Status to Organize A System  ');
+document.getElementById("post").innerHTML += md.render('');
+document.getElementById("post").innerHTML += md.render('## Problems of Organizing A System');
+document.getElementById("post").innerHTML += md.render('');
+document.getElementById("post").innerHTML += md.render('In the development of software systems, there is usually a requirement to allow the communication between different components. Obviously, this is not a new problem, and many strategies have been used to build the communication, including the design of a common accessible communication center, and the construction of explicit communicating channel between the according components. Note that, communication is also possible if one component has direct access to the other component, and this kind of access can be guaranteed with intermediate relations if all components are organized in a structure.  ');
+document.getElementById("post").innerHTML += md.render('');
+document.getElementById("post").innerHTML += md.render('To organize the components, the simplest structure is probably the tree-like structure. In a tree, the components are connected by the directional "parent-child" relations, and if at most one parent is allowed for each node, then in total there are n-1 relations which is the minimum to connect n components.');
+document.getElementById("post").innerHTML += md.render('');
+document.getElementById("post").innerHTML += md.render('"Frame" is a simple node model designed to realize the tree structure. In "Frame", only several necessary operation is supported and hence it brings only a little complexity to the system design.');
+document.getElementById("post").innerHTML += md.render('');
+document.getElementById("post").innerHTML += md.render('## "Frame"');
+document.getElementById("post").innerHTML += md.render('');
+document.getElementById("post").innerHTML += md.render('Since "Frame" is a realization of tree node, it should support the reference to the node's parent and children. Furthermore, it also maintains a reference to the tree's root. In the following, it is the abstract representation of "Frame".');
+document.getElementById("post").innerHTML += md.render('');
+document.getElementById("post").innerHTML += md.render('    Frame {');
+document.getElementById("post").innerHTML += md.render('      var root : Frame');
+document.getElementById("post").innerHTML += md.render('      var parent : Frame');
+document.getElementById("post").innerHTML += md.render('      var children : map<string, Frame>');
+document.getElementById("post").innerHTML += md.render('');
+document.getElementById("post").innerHTML += md.render('      func AddChild(name : string, child : Frame)');
+document.getElementById("post").innerHTML += md.render('      func GetChild(name : string) => Frame');
+document.getElementById("post").innerHTML += md.render('      func RemoveChild(name : string)');
+document.getElementById("post").innerHTML += md.render('    }');
+document.getElementById("post").innerHTML += md.render('');
+document.getElementById("post").innerHTML += md.render('The parent-child relation is constructed in "AddChild", and it is broken in "RemoveChild". Note that the root of the node should be properly updated when the parent-child relation is modified.');
+document.getElementById("post").innerHTML += md.render('');
+document.getElementById("post").innerHTML += md.render('## Shared Status');
+document.getElementById("post").innerHTML += md.render('');
+document.getElementById("post").innerHTML += md.render('In a lot of cases, the components communicate to derive the current others' status. It is much easier to achieve the same effect if all the components maintain their status in a common access information center. With "Frame", this can be done by share the status among all the nodes in a same tree.');
+document.getElementById("post").innerHTML += md.render('');
+document.getElementById("post").innerHTML += md.render('In additional to status, the component-oriented parameters and the warehouse of databases can also be shared. Then the components can directly access to any other's status. ');
+document.getElementById("post").innerHTML += md.render('');
+document.getElementById("post").innerHTML += md.render('## Discussions');
+document.getElementById("post").innerHTML += md.render('');
+document.getElementById("post").innerHTML += md.render('As shown above, "Frame" only works in building the tree-like structures.If the desired system has a structure much different from a tree, using "Frame" without adjustments may not save the effort. Together with shared status, "Frame" makes the design of components much easier, especially in prototyping the system.');
+</script>
+        <div id="footer"></div>
+        </body>
+        </html>
