@@ -12,7 +12,7 @@ To organize the components, the simplest structure is probably the tree-like str
 
 Since "Frame" is a realization of tree node, it should support the reference to the node's parent and children. Furthermore, it also maintains a reference to the tree's root. In the following, it is the abstract representation of "Frame".
 
-```
+    ```
     Frame {
       var root : Frame
       var parent : Frame
@@ -21,7 +21,7 @@ Since "Frame" is a realization of tree node, it should support the reference to 
       func GetChild(name : string) => Frame
       func RemoveChild(name : string)
     }
-```
+    ```
 
 The parent-child relation is constructed in "AddChild", and it is broken in "RemoveChild". Note that the root of the node should be properly updated when the parent-child relation is modified.
 

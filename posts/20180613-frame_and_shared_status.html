@@ -37,7 +37,7 @@ document.getElementById("post").innerHTML += md.render('## "Frame"');
 document.getElementById("post").innerHTML += md.render('');
 document.getElementById("post").innerHTML += md.render('Since "Frame" is a realization of tree node, it should support the reference to the node\'s parent and children. Furthermore, it also maintains a reference to the tree\'s root. In the following, it is the abstract representation of "Frame".');
 document.getElementById("post").innerHTML += md.render('');
-document.getElementById("post").innerHTML += md.render('```');
+document.getElementById("post").innerHTML += md.render('    ```');
 document.getElementById("post").innerHTML += md.render('    Frame {');
 document.getElementById("post").innerHTML += md.render('      var root : Frame');
 document.getElementById("post").innerHTML += md.render('      var parent : Frame');
@@ -46,7 +46,7 @@ document.getElementById("post").innerHTML += md.render('      func AddChild(name
 document.getElementById("post").innerHTML += md.render('      func GetChild(name : string) => Frame');
 document.getElementById("post").innerHTML += md.render('      func RemoveChild(name : string)');
 document.getElementById("post").innerHTML += md.render('    }');
-document.getElementById("post").innerHTML += md.render('```');
+document.getElementById("post").innerHTML += md.render('    ```');
 document.getElementById("post").innerHTML += md.render('');
 document.getElementById("post").innerHTML += md.render('The parent-child relation is constructed in "AddChild", and it is broken in "RemoveChild". Note that the root of the node should be properly updated when the parent-child relation is modified.');
 document.getElementById("post").innerHTML += md.render('');
