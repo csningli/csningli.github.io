@@ -60,7 +60,7 @@ def create_html(md_filename) :
 
     with open(posts_dir + "/" + md_filename, 'r') as f :
         for line in f :
-            md.append(line.strip('\n').replace('\'', '\\\''))
+            md.append(line.strip('\n').replace('\'', '\\\'').replace('\`', '\\\`'))
             if title == "" and line.strip()[0] == '#' :
                 title = line[1:].strip()
     # print(timelabel, "-", title, "-", md)
