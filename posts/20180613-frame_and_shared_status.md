@@ -11,3 +11,25 @@ To organize the components, the simplest structure is probably the tree-like str
 ## "Frame"
 
 Since "Frame" is a realization of tree node, it should support the reference to the node's parent and children. Furthermore, it also maintains a reference to the tree's root. In the following, it is the abstract representation of "Frame".
+
+Frame {
+      var root : Frame
+      var parent : Frame
+      var children : map<string, Frame>
+
+      func AddChild(name : string, child : Frame)
+      func GetChild(name : string) => Frame
+      func RemoveChild(name : string)
+    }
+
+The parent-child relation is constructed in "AddChild", and it is broken in "RemoveChild". Note that the root of the node should be properly updated when the parent-child relation is modified.
+
+## Shared Status
+
+In a lot of cases, the components communicate to derive the current others' status. It is much easier to achieve the same effect if all the components maintain their status in a common access information center. With "Frame", this can be done by share the status among all the nodes in a same tree.
+
+In additional to status, the component-oriented parameters and the warehouse of databases can also be shared. Then the components can directly access to any other's status.
+
+## Discussions
+
+As shown above, "Frame" only works in building the tree-like structures.If the desired system has a structure much different from a tree, using "Frame" without adjustments may not save the effort. Together with shared status, "Frame" makes the design of components much easier, especially in prototyping the system.
