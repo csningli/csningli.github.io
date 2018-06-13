@@ -11,5 +11,3 @@ To organize the components, the simplest structure is probably the tree-like str
 ## "Frame"
 
 Since "Frame" is a realization of tree node, it should support the reference to the node's parent and children. Furthermore, it also maintains a reference to the tree's root. In the following, it is the abstract representation of "Frame".
-
-The parent-child relation is constructed in "AddChild", and it is broken in "RemoveChild". Note that the root of the node should be properly updated when the parent-child relation is modified.
