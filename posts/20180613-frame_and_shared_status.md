@@ -7,3 +7,9 @@ In the development of software systems, there is usually a requirement to allow 
 To organize the components, the simplest structure is probably the tree-like structure. In a tree, the components are connected by the directional "parent-child" relations, and if at most one parent is allowed for each node, then in total there are n-1 relations which is the minimum to connect n components.
 
 "Frame" is a simple node model designed to realize the tree structure. In "Frame", only several necessary operation is supported and hence it brings only a little complexity to the system design.
+
+## "Frame"
+
+Since "Frame" is a realization of tree node, it should support the reference to the node's parent and children. Furthermore, it also maintains a reference to the tree's root. In the following, it is the abstract representation of "Frame".
+
+The parent-child relation is constructed in "AddChild", and it is broken in "RemoveChild". Note that the root of the node should be properly updated when the parent-child relation is modified.
