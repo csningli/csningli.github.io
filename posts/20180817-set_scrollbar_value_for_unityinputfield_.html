@@ -31,6 +31,7 @@ document.getElementById("post").innerHTML += md.render('However, if you change s
 document.getElementById("post").innerHTML += md.render('');
 document.getElementById("post").innerHTML += md.render('The solution is also simple. If you want to scroll the bar according to the latest content, then you should change scrollbar\'s value in the next (or even later) Update() scope.');
 document.getElementById("post").innerHTML += md.render('');
+document.getElementById("post").innerHTML += md.render('    public Scrollbar scrollbar;');
 document.getElementById("post").innerHTML += md.render('    private bool contentChanged = false;');
 document.getElementById("post").innerHTML += md.render('');
 document.getElementById("post").innerHTML += md.render('    void Update ()');
@@ -47,6 +48,11 @@ document.getElementById("post").innerHTML += md.render('        if (Changed(cont
 document.getElementById("post").innerHTML += md.render('        {');
 document.getElementById("post").innerHTML += md.render('            contentChanged = true;');
 document.getElementById("post").innerHTML += md.render('        }');
+document.getElementById("post").innerHTML += md.render('    }');
+document.getElementById("post").innerHTML += md.render('');
+document.getElementById("post").innerHTML += md.render('    private bool Changed (Text content)');
+document.getElementById("post").innerHTML += md.render('    {');
+document.getElementById("post").innerHTML += md.render('        // ...');
 document.getElementById("post").innerHTML += md.render('    }');
 document.getElementById("post").innerHTML += md.render('');
 document.getElementById("post").innerHTML += md.render('Just for comment, someone suggests doing "Canvas.ForceUpdateCanvases()". However, this doesn\'t always work.');

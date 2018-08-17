@@ -6,6 +6,7 @@ However, if you change scrollbar's value (in the script) right after the inputfi
 
 The solution is also simple. If you want to scroll the bar according to the latest content, then you should change scrollbar's value in the next (or even later) Update() scope.
 
+    public Scrollbar scrollbar;
     private bool contentChanged = false;
 
     void Update ()
@@ -22,6 +23,11 @@ The solution is also simple. If you want to scroll the bar according to the late
         {
             contentChanged = true;
         }
+    }
+
+    private bool Changed (Text content)
+    {
+        // return true if 'content' has changed; otherwise return false
     }
 
 Just for comment, someone suggests doing "Canvas.ForceUpdateCanvases()". However, this doesn't always work.
