@@ -53,11 +53,9 @@ def update_posts() :
 
 def create_html(md_filename) :
     html_filename = ".".join(md_filename.split('.')[:-1]) + ".html"
-    md = []
-
     timelabel = html_filename.split('-')[0]
     title = ""
-
+    md = []
     with open(posts_dir + "/" + md_filename, 'r') as f :
         for line in f :
             md.append(line.strip('\n').replace('\'', '\\\'').replace('`', '\\`'))
@@ -65,43 +63,44 @@ def create_html(md_filename) :
                 title = line[1:].strip()
     # print(timelabel, "-", title, "-", md)
 
-    with open(posts_dir + "/" + html_filename, 'w') as f :
-        f.write(r'''<html>
-        <head>
-        <link rel="icon" href="../res/icon.png">
-        <style>body{width:960px; margin:0 auto;}</style>
-        <meta charset="utf-8" />
-        ''')
-        f.write("<title>%s</title>\n" % title)
-        f.write(r'''
-        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-        <script src="//cdn.jsdelivr.net/remarkable/1.7.1/remarkable.min.js"></script>
-        <script>
-        $(function(){
-          $("#header").load("../header.html");
-          $("#footer").load("../footer.html");
-        });
-        </script>
-        </head>
+    if os.path.exists(posts_dir + "/" + html_filename) == False :
+        with open(posts_dir + "/" + html_filename, 'w') as f :
+            f.write(r'''<html>
+            <head>
+            <link rel="icon" href="../res/icon.png">
+            <style>body{width:960px; margin:0 auto;}</style>
+            <meta charset="utf-8" />
+            ''')
+            f.write("<title>%s</title>\n" % title)
+            f.write(r'''
+            <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+            <script src="//cdn.jsdelivr.net/remarkable/1.7.1/remarkable.min.js"></script>
+            <script>
+            $(function(){
+              $("#header").load("../header.html");
+              $("#footer").load("../footer.html");
+            });
+            </script>
+            </head>
 
-        <body>
-        <div id="header"></div>
-        <p id="time"></p>
-        <p id="post"></p>
+            <body>
+            <div id="header"></div>
+            <p id="time"></p>
+            <p id="post"></p>
 
-        <script>
-        var md = new Remarkable();
-        ''')
+            <script>
+            var md = new Remarkable();
+            ''')
 
 
-        f.write("document.getElementById(\"time\").innerHTML = \"[Posted on: %s]\"\n" % timelabel)
-        for line in md :
-            f.write("document.getElementById(\"post\").innerHTML += md.render(\'%s\');\n" % line)
+            f.write("document.getElementById(\"time\").innerHTML = \"[Posted on: %s]\"\n" % timelabel)
+            for line in md :
+                f.write("document.getElementById(\"post\").innerHTML += md.render(\'%s\');\n" % line)
 
-        f.write(r'''</script>
-        <div id="footer"></div>
-        </body>
-        </html>''')
+            f.write(r'''</script>
+            <div id="footer"></div>
+            </body>
+            </html>''')
 
     htmls[timelabel + " - " + title] = html_filename
 
