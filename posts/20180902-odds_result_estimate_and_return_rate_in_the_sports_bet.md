@@ -2,7 +2,7 @@
 
 ## Odds
 
-"Odds" is the most primary and basic concept in sports bet. We take the "decimal odds" (used in Europe) for an example. The bookmaker announce the ratio of full payout to the stake for each game result. Given a game with "host A v.s. guest B", if the announced odds are <i>ow</i>, od, and ol, it means
+"Odds" is the most primary and basic concept in sports bet. We take the "decimal odds" (used in Europe) for an example. The bookmaker announce the ratio of full payout to the stake for each game result. Given a game with "host A v.s. guest B", if the announced odds are ow, od, and ol, it means
 
 - if you placed wager w on "host A wins", then you will get w * ow when A finally wins;
 - if you placed wager w on "draw game", then you will get w * od when the final result is draw;
@@ -70,4 +70,4 @@ with r'' < r'. Thus ow' < w * r' / ww. Recall the calculation of the return rate
 
     r' = 1 / (1 / ow' + 1 / od' + 1 / ol')
 
-To achieve the resulting rate r' with a smaller ow', the bookmaker would raise the value of od' or ol'. As a result, when the bettors believe the return rate is r', the actural return rate of bookmaker is r'' < r' as long as "host A wins". On the other hand, since the value of od' (or ol') has been raised, the actural return rate of bookmaker is higher than r', if "draw game" (or "host A loses"). This is the deep motivation to push the bookmaker to get the "correct" prediction about the game's result, since if with placing the wager on the correct side, he can earn more money while announcing a high (and hence competitive) return rate. 
+To achieve the resulting rate r' with a smaller ow', the bookmaker would raise the value of od' or ol'. As a result, when the bettors believe the return rate is r', the actural return rate of bookmaker is r'' < r' as long as "host A wins". On the other hand, since the value of od' (or ol') has been raised, the actural return rate of bookmaker is higher than r', if "draw game" (or "host A loses"). This is the deep motivation to push the bookmaker to get the "correct" prediction about the game's result, since if with placing the wager on the correct side, he can earn more money while announcing a high (and hence competitive) return rate.
