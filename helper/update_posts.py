@@ -111,7 +111,6 @@ def check_posts() :
             if len(filename.split('.')) > 1 and filename.split('.')[-1] == "md" :
                 create_html(filename)
 
-
 if __name__ == "__main__" :
     check_posts()
     update_posts()
