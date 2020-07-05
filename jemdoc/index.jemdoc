@@ -1,0 +1,37 @@
+# jemdoc: menu{MENU}{index.html}, showsource
+= NING, Li's Homepage
+
+~~~
+{}{raw}
+<table class="picil">
+<tr>
+<td class="picil_pic">
+<img src="res/20200725.png" alt="Li Ning" width="270" height="220">
+</td>
+<td class="picil_il">
+<b>Li Ning</b><br>
+<b>Ph.D., Associate Professor</b><br><br>
+Algorithm and Optimization Group (<a href="http://hpcc.siat.ac.cn/kydw.html">AOG</a>)<br>
+Center for High Performance Computing (<a href="http://hpcc.siat.ac.cn/">HPCC</a>)<br>
+Shenzhen Institutes of Advanced Technology (<a href="http://english.siat.cas.cn/">SIAT</a>), CAS<br>
+Shenzhen, China<br>
+E-mail: li <i>dot</i> ning <i>at</i> siat <i>dot</i> ac <i>dot</i> cn
+</td>
+</tr>
+</table>
+~~~
+
+== Research Interests
+
+My research interests include
+- Design, simulation, and applications of the multiagent systems;
+- Distributed computing and optimization.
+
+Besides Python and Julia, [http://daoscript.org/ Dao] is also one of my preferred programming languages.
+
+== Latest News [news.html (more...)]
+
+~~~
+{2020}
+- Jun. 1: The website of [http://www.nsccsz.cn/nsccsz/paap2020/paap2020.shtml PAAP 2020] is online now!
+~~~
