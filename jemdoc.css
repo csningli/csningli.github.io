@@ -1,22 +1,23 @@
 /* Default css file for jemdoc. */
 
 table.picil {
-    border: none;
+    border: 0px;
     background: white;
+    border-spacing: 50px;
 }
 
 tr.picil {
-    border: none;
+    border: 0px;
     background: white;
 }
 
 td.picil_pic {
-    border: none;
+    border: 0px;
     background: white;
 }
 
 td.picil_il {
-    border: none;
+    border: 0px;
     background: white;
     text-align: left;
     vertical-align: top;
