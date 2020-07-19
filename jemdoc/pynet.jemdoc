@@ -1,0 +1,2 @@
+# jemdoc: menu{MENU}{pynet.html}, showsource
+= pynet -- Light Framework for Neural Networks in Python 
