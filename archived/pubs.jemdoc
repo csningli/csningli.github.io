@@ -1,0 +1,38 @@
+# jemdoc: menu{MENU}{pubs.html}, showsource
+= Publications
+
+== Journal Papers
+. Approximation Algorithms for The Partial Assignment Problem, Guichen Gao, *Li Ning*, Hing-Fung Ting, Yicheng Xu, Yong Zhang, and Yifei Zou, TCS, 2020.
+. Improving Emergency Evacuation Planning with Mobile Phone Location Data, Ling Yin, Jie Chen, Hao Zhang, Zhile Yang, Qiao Wan, *Li Ning*, Jinxing Hu, Qi Yu, Environment and Planning B: Urban Analytics and City Science, 2019.
+. Optimizing Social Welfare for Network Bargaining Games in the Face of Instability, Greed and Idealism (*journal version*), T-H. Hubert Chan, Fei Chen and *Li Ning*, Theory of Computer Systems, 2019, pp 1-29.
+. Optimizing The Constrained Estimate of Random Walks, Rong Zhou, Yong Zhang and *Li Ning*, IEEE Access, 2018, 6, pp 58682-58686.
+. A System to Manage and Mine Microblogging Data, Zhongying Zhao, Yong Zhang, Chao Li, *Li Ning* and Jiancong Fan, JIFS, 2017, 33, pp 315–325.
+. Distributed Spanner Construction with Physical Interference: Constant Stretch and Linear Sparseness, Dongxiao Yu, *Li Ning*, Yifei Zou, Jiguo Yu, Xiuzhen Cheng and Francis C.M. Lau, ToN, 2017, 25(4), pp 2138-2151.
+. New doubling Spanner: Better and Simpler (*journal version*), T-H.Hubert Chan, Mingfei Li, *Li Ning* and Shay Solomon, SICOMP, 2015, 44(1), pp 37-53.
+. Sparse Fault-Tolerant Spanners for Doubling Metrics with Bounded Hop-Diameter and Degree (*journal version*), T-H. Hubert Chan, Mingfei Li and *Li Ning*, Algorithmica, 2015, 71(1), pp 53-65.
+. Fast Convergence for Consensus in Dynamic Networks (*journal version*), T-H. Hubert Chan and *Li Ning*, TALG, 2015, 10(3), Article No. 15.
+
+== Conference Papers
+. Solving Mobility Intervention of Epidemics using Genetic Algorithm, Rong Zhou, Kaidong Zhao and *Li Ning*, PAPW (KDD Workshop), 2020.
+. LAC-Nav: Collision-Free Multiagent Navigation Based on The Local Action Cells, *Li Ning* and Yong Zhang, DAI, 2020.
+. Robustness and Approximation for The Linear Contract Design, Guichen Gao, Xinxin Han, *Li Ning*, Hing-Fung Ting and Yong Zhang, AAIM, 2020.
+. Search Complexity: A Way for The Quantitative Analysis of The Search Space, *Li Ning* and Yong Zhang, AAIM, 2020.
+. Approximation Algorithm for The Offloading Problem in Edge Computing, Xinxin Han, Guichen Gao, *Li Ning*, Yang Wang and Yong Zhang, WASA, 2020.
+. Maximizing The Expected Influence in Face of The Non-Progressive Adversary, T-H. Hubert Chan, *Li Ning* and Yong Zhang, WASA, 2020.
+. Influence Maximization under The Non-Progressive Linear Threshold Model, T-H. Hubert Chan, *Li Ning* and Yong Zhang, FAW, 2020.
+. Algorithmic Pricing for the Partial Assignment, Guichen Gao, *Li Ning*, Hing-Fung Ting, Yong Zhang and Yifei Zou, COCOA, 2019.
+. Dynamic Pipelining for The Loosely-Coupled Distributed Constraint Satisfaction Problems, Chun Chen, *Li Ning*, Yong Zhang and Shengzhong Feng, PDCAT, 2019.
+. The Fusion Knowledge of Face, Body and Context for Emotion Recognition, Jingjing Wu, Yong Zhang, *Li Ning*, ICMEW, 2019.
+. Taking Less Detour when Avoiding The Collisions, *Li Ning*, Rong Zhou, Dongxiao Yu, Yong Zhang and Francis C.M. Lau, ICSSE, 2018.
+. Uniform Information Exchange in Multi-channel Wireless Ad Hoc Networks, Dongxiao Yu, *Li Ning*, Yong Zhang, Hai Jin, Yuexuan Wang, Francis C.M. Lau and Shengzhong Feng, AAMAS, 2017.
+. A Distance and Density-based Clustering Algorithm using Automatic Peak Detection, Rong Zhou, Shuang Zhang, *Li Ning*, Yong Zhang and Shengzhong Feng, SmartCloud, 2016.
+. Real-time Channel Recommendation: Switch Smartly while Watching TV, *Li Ning*, Zhongying Zhao, Rong Zhou and Yong Zhang, FAW, 2016.
+. Brief Announcement: Uniform Information Exchange in Multi-channel Wireless Ad Hoc Networks, *Li Ning*, Dongxiao Yu, Yong Zhang, Yuexuan Wang, Shengzhong Feng and Francis Lau, DISC, 2015.
+. Collecting, Managing and Analyzing Social Networking Data Effectively, Zhongying Zhao, Mingjun Liu, Yong Zhang and *Li Ning*, FSKD, 2015.
+. Logarithmic Convergence for Consensus of Dynamic Systems, *Li Ning*, Journal of Integration Technology, 2014, 3(2).
+. Improve the Performance of Adaptive Sleep Scheduled Wireless Sensor Network, Cheng Qiao, Yong Zhang, *Li Ning* and Shenzhong Feng, MSN, 2013.
+. New Doubling Spanner: Better and Simpler. T-H. Hubert Chan, Mingfei Li, *Li Ning*, and Shay Solomon, ICALP, 2013.
+. (1 + epsilon)-Distance Oracles for Vertex-Labeled Planar Graphs, Mingfei Li, Christopher Ma, *Li Ning*, TAMC, 2013.
+. Optimizing Social Welfare for Network Bargaining Games in The Face of Unstability, Greed, and Spite. T-H. Hubert Chan, Fei Chen and *Li Ning*, ESA, 2012.
+. Sparse Fault-Tolerant Spanners for Doubling Metrics with Bounded Hop-Diameter and Degree, T-H. Hubert Chan, Mingfei Li and *Li Ning*, ICALP, 2012.
+. Fast Convergence for Consensus in Dynamic Networks, T-H. Hubert Chan and *Li Ning*, ICALP, 2011.
