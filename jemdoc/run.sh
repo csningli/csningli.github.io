@@ -1,6 +1,6 @@
 #! /bin/bash
 
-CONENV="jemdoc"
+CONENV="python27"
 
 CONCON=$(which conda)
 CONBIN=${CONCON%/*}
@@ -21,7 +21,7 @@ else
   conda activate $CONENV
 fi
 
-for PAGE in index bio teaching news problems projects pubs patents mcf ;
+for PAGE in index bio teaching news problems group pubs patents ;
 do
   python jemdoc.py $PAGE
   mv $PAGE.html ../$PAGE.html
