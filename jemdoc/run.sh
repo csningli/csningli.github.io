@@ -1,6 +1,6 @@
 #! /bin/bash
 
-CONENV="python27"
+CONENV="jemdoc"
 
 CONCON=$(which conda)
 CONBIN=${CONCON%/*}
