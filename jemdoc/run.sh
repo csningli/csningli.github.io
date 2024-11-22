@@ -21,7 +21,7 @@ else
   conda activate $CONENV
 fi
 
-for PAGE in index bio teaching news problems group pubs patents ;
+for PAGE in index news posts ;
 do
   python jemdoc.py $PAGE
   mv $PAGE.html ../$PAGE.html

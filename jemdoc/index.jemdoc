@@ -1,34 +1,37 @@
 # jemdoc: menu{MENU}{index.html}, showsource
-= NING, Li's Homepage | Associate Professor, ShenSi Lab, UESTC
+= Liam's Homepage
 
 ~~~
 {}{raw}
 <table class="picil">
 <tr>
 <td class="picil_pic">
-<img src="res/20200725.png" alt="Li Ning" width="270" height="220">
+<img src="res/talk_at_hku.jpg" alt="Li Ning" width="240" height="160">
 </td>
 <td class="picil_il">
-<b>Li Ning</b><br>
-<b>Ph.D., Associate Professor</b><br><br>
-AI Group, <br>
-ShenSi Lab, <br>
-University of Electronic Science and Technology of China, <br>
-Shenzhen, China<br>
-E-mail: csningli <i>at</i> qq <i>dot</i> com
+<b>Liam Ning</b><br>
+<b>Ph.D. (CS, for Computer Science); B.sc. (CS, for Computing Science) </b><br><br>
+<br>
+
 </td>
 </tr>
 </table>
 ~~~
 
-== Research Interests
+== Welcome 
 
-My research interests include
-- The desgin and application of artificial intelligent algorithms, especially AIGC algorithms;
-- Design, simulation, and applications of the multiagent systems.
+== Consultation 
+
+== Top Posts [posts.html (more...)]
+
+~~~
+{2024}
+~~~
 
 == Latest News [news.html (more...)]
 
 ~~~
-{2023}
+{2024}
+
+- Jul. 4 -- Jul. 7: Show in WAIC 2024, China.
 ~~~
