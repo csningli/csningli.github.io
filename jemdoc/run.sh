@@ -21,8 +21,15 @@ else
   conda activate $CONENV
 fi
 
-for PAGE in index news posts ;
+for NAME in index news posts ;
+do
+  python jemdoc.py $NAME
+  mv $NAME.html ../$NAME.html
+done
+
+for PAGE in posts/*.jemdoc ;
 do
   python jemdoc.py $PAGE
-  mv $PAGE.html ../$PAGE.html
+  NAME=${PAGE%.jemdoc}
+  mv $NAME.html ../$NAME.html
 done
