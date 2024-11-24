@@ -33,3 +33,10 @@ do
   NAME=${PAGE%.jemdoc}
   mv $NAME.html ../$NAME.html
 done
+
+for PAGE in notes/*.jemdoc ;
+do
+  python jemdoc.py $PAGE
+  NAME=${PAGE%.jemdoc}
+  mv $NAME.html ../$NAME.html
+done
