@@ -21,7 +21,7 @@ else
   conda activate $CONENV
 fi
 
-for NAME in index news posts ;
+for NAME in index news posts notes ;
 do
   python jemdoc.py $NAME
   mv $NAME.html ../$NAME.html
