@@ -1,10 +1,6 @@
-# jemdoc: menu{MENU}{news.html}, showsource
-= Nov. 24, 2024
-~~~
-{}{raw}
-<b>The Potential of Applying LLMs in the Generation and Evaluation of Financial Documents</b>
-<br>
-~~~
+= Dec. 9th, 2024
+
+=== The Potential of Applying LLMs in the Generation and Evaluation of Financial Documents
 
 The application of Large Language Models (LLMs), particularly those with hundreds of billions of parameters, holds significant potential in the realm of financial document generation and evaluation. These models excel at summarizing vast amounts of data, offering insights into individual companies or entire industries. Their ability to quickly process and synthesize information can streamline the creation of high-level overviews, such as executive summaries, industry reports, and market trend analyses.
 
