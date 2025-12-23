@@ -1,109 +1,967 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-<meta name="generator" content="jemdoc, see http://jemdoc.jaboc.net/" />
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<link rel="stylesheet" href="jemdoc.css" type="text/css" />
-<title>Liam's Homepage</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宁立博士 - 个人主页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --dark-gray: #1a1a1a;
+            --medium-gray: #4a4a4a;
+            --light-gray: #a0a0a0;
+            --lighter-gray: #e0e0e0;
+            --white: #ffffff;
+            --off-white: #fafafa;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            line-height: 1.7;
+            color: var(--dark-gray);
+            background: var(--off-white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Language Toggle */
+        .lang-toggle {
+            position: fixed;
+            top: 30px;
+            right: 40px;
+            z-index: 1000;
+            display: flex;
+            gap: 0;
+            background: var(--white);
+            border-radius: 25px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .lang-btn {
+            padding: 12px 24px;
+            border: none;
+            background: transparent;
+            color: var(--medium-gray);
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .lang-btn.active {
+            color: var(--white);
+            background: var(--dark-gray);
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: var(--black);
+        }
+
+        /* Header */
+        header {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--black) 0%, var(--dark-gray) 100%);
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(255, 255, 255, 0.03) 2px,
+                    rgba(255, 255, 255, 0.03) 4px
+                );
+            animation: slideDown 20s linear infinite;
+        }
+
+        @keyframes slideDown {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(40px); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: var(--white);
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .name {
+            font-size: 5em;
+            font-weight: 200;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .name::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--white), transparent);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .title {
+            font-size: 1.4em;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            opacity: 0.9;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            font-weight: 300;
+            opacity: 0.7;
+            letter-spacing: 0.05em;
+        }
+
+        /* Sections */
+        section {
+            padding: 120px 0;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        section:nth-child(even) {
+            background: var(--white);
+        }
+
+        h2 {
+            font-size: 3em;
+            font-weight: 200;
+            margin-bottom: 80px;
+            color: var(--black);
+            letter-spacing: 0.05em;
+            position: relative;
+            text-align: center;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: var(--dark-gray);
+            animation: expandLine 0.8s ease-out;
+        }
+
+        @keyframes expandLine {
+            from { width: 0; }
+            to { width: 80px; }
+        }
+
+        /* Positions Grid */
+        .positions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1px;
+            background: var(--lighter-gray);
+            border: 1px solid var(--lighter-gray);
+        }
+
+        .position-card {
+            background: var(--white);
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .position-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-gray);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 0;
+        }
+
+        .position-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .position-card > * {
+            position: relative;
+            z-index: 1;
+            transition: color 0.4s ease;
+        }
+
+        .position-card:hover > * {
+            color: var(--white);
+        }
+
+        .position-title {
+            font-size: 1.3em;
+            font-weight: 400;
+            color: var(--black);
+            margin-bottom: 12px;
+            letter-spacing: 0.02em;
+        }
+
+        .position-org {
+            color: var(--medium-gray);
+            font-size: 1em;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, var(--lighter-gray), var(--medium-gray), var(--lighter-gray));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 60px;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            padding-right: 60px;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 50%;
+            padding-left: 60px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            width: 14px;
+            height: 14px;
+            background: var(--dark-gray);
+            border: 3px solid var(--off-white);
+            border-radius: 50%;
+            box-shadow: 0 0 0 1px var(--lighter-gray);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            right: -7px;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            left: -7px;
+        }
+
+        .timeline-item:hover::before {
+            transform: scale(1.5);
+            background: var(--black);
+        }
+
+        .timeline-content {
+            background: transparent;
+            padding: 25px 0;
+        }
+
+        .timeline-title {
+            font-size: 1.2em;
+            font-weight: 400;
+            color: var(--black);
+            margin-bottom: 8px;
+            letter-spacing: 0.02em;
+        }
+
+        .timeline-desc {
+            color: var(--medium-gray);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* Projects */
+        .project-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .project-card {
+            position: relative;
+            padding: 50px;
+            background: var(--white);
+            border: 1px solid var(--lighter-gray);
+            transition: all 0.4s ease;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid var(--black);
+            transform: translate(10px, 10px);
+            transition: transform 0.4s ease;
+            z-index: -1;
+        }
+
+        .project-card:hover {
+            transform: translate(5px, 5px);
+        }
+
+        .project-card:hover::before {
+            transform: translate(0, 0);
+        }
+
+        .project-name {
+            font-size: 2em;
+            font-weight: 300;
+            color: var(--black);
+            margin-bottom: 25px;
+            letter-spacing: 0.05em;
+        }
+
+        .project-desc {
+            color: var(--medium-gray);
+            line-height: 1.9;
+            font-weight: 300;
+        }
+
+        /* Awards */
+        .awards-list {
+            max-width: 800px;
+            margin: 60px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .award-item {
+            padding: 30px 40px;
+            background: var(--white);
+            border-left: 4px solid var(--black);
+            font-size: 1.2em;
+            font-weight: 300;
+            color: var(--dark-gray);
+            transition: all 0.4s ease;
+            position: relative;
+            letter-spacing: 0.02em;
+        }
+
+        .award-item::before {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--light-gray);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.4s ease;
+        }
+
+        .award-item:hover::before {
+            transform: scaleY(1);
+            transform-origin: top;
+        }
+
+        .award-item:hover {
+            transform: translateX(20px);
+            box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--light-gray);
+            text-align: center;
+            padding: 60px 40px;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-15px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-8px);
+            }
+        }
+
+        .scroll-indicator::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .scroll-indicator::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 2px;
+            animation: scrollWheel 2s infinite;
+        }
+
+        @keyframes scrollWheel {
+            0% {
+                opacity: 1;
+                transform: translateX(-50%) translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(20px);
+            }
+        }
+
+        /* Language Content */
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 25px;
+            }
+
+            .lang-toggle {
+                top: 20px;
+                right: 20px;
+            }
+
+            .name {
+                font-size: 3em;
+            }
+
+            .title {
+                font-size: 1.1em;
+            }
+
+            h2 {
+                font-size: 2.2em;
+                margin-bottom: 60px;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .positions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 40px;
+                padding-right: 0;
+                text-align: left;
+                margin-left: 0;
+            }
+
+            .timeline-item:nth-child(odd) {
+                padding-right: 0;
+                padding-left: 40px;
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(even) {
+                margin-left: 0;
+            }
+
+            .timeline-item::before {
+                left: -7px;
+                right: auto;
+            }
+
+            .project-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-<table summary="Table for page layout." id="tlayout">
-<tr valign="top">
-<td id="layout-menu">
-<div class="menu-category">Liam</div>
-<div class="menu-item"><a href="https://www.csningli.com/index.html" class="current">Home</a></div>
-<div class="menu-item"><a href="https://www.csningli.com/news.html">News</a></div>
-<div class="menu-item"><a href="https://www.csningli.com/posts.html">Posts</a></div>
-<div class="menu-item"><a href="https://www.csningli.com/notes.html">Notes</a></div>
-<div class="menu-category">Links</div>
-<div class="menu-item"><a href="https://x.com/csningli">X</a></div>
-<div class="menu-item"><a href="https://www.linkedin.com/in/liam-ning-a6218925/">LinkedIn</a></div>
-<div class="menu-item"><a href="https://www.youtube.com/@csningli">Youtube</a></div>
-<div class="menu-item"><a href="https://scholar.google.com.co/citations?user=BfScv3gAAAAJ&hl=it">Scholar</a></div>
-</td>
-<td id="layout-content">
-<div id="toptitle">
-<h1>Liam's Homepage</h1>
-</div>
-<table class="picil">
-<tr>
-<td class="picil_pic">
-<img src="figs/talk_at_hku.jpg" alt="Li Ning" width="240" height="160">
-</td>
-<td class="picil_il">
-<b>Liam Ning</b><br>
-<b>Ph.D. (CS, for Computer Science); B.sc. (CS, for Computing Science) </b><br><br>
-<br>
-CTO and co-founder of Stellaris AI (released 200B LLM - SGPT on May 2023) || AI Content Creator || Al Enthusiast || AI Researcher || Expert on Distributed AI & High-Performance Computing & AI Infrastructure
-</td>
-</tr>
-</table>
-<h2>Welcome </h2>
-<p>Throughout our journey in researching and developing advanced AI models and applications, we've encountered numerous exciting ideas and insights that, while intriguing, didn’t quite fit into our current work plan. I believe it’s valuable to share these ideas to create more opportunities for connecting with others who are passionate about AI. This motivation has driven me to actively (or, at least, I hope so) maintain this website as a platform for sharing interesting insights on AI, particularly in the areas of LLMs and AIGC, as well as practical notes that may benefit fellow AI researchers and developers. Feel free to connect with me directly on X, LinkedIn, or YouTube.</p>
-<h2>Consultation </h2>
-<p>As the landscape of artificial intelligence continues to evolve, large language models (LLMs) stand at the forefront of innovation. Our consultation services are designed to guide organizations in harnessing the full potential of LLMs for diverse applications, from automated content generation to data-driven decision-making. Whether you are looking to integrate LLMs into your products, streamline workflows, or advance cutting-edge research, we offer tailored strategies to navigate this complex and rapidly advancing field with precision and efficiency. For those interested in exploring how LLMs can transform your business, feel free to reach out to me on LinkedIn.</p>
-<h2>Top Posts <a href="posts.html">(more&hellip;)</a></h2>
-<div class="infoblock">
-<div class="blocktitle">2024</div>
-<div class="blockcontent">
-<ul>
-<li><p>Nov. 24th: The Potential of Applying LLMs in the Generation and Evaluation of Financial Documents. <a href="posts/20241209.html">(more&hellip;)</a></p>
-</li>
-</ul>
-</div></div>
-<h2>Latest News <a href="news.html">(more&hellip;)</a></h2>
-<div class="infoblock">
-<div class="blocktitle">2024</div>
-<div class="blockcontent">
-<ul>
-<li><p>Dec. 9th: Demo presentation in Cyberport’s AISC &amp; AI Lab Opening Ceremony. It's great to become the partner of Cyberport's AI Lab.</p>
-</li>
-</ul>
-<p><img src="figs/20241209-cyberport_aisc_ceremony_1.jpg" alt="SGPT on Cyberport's AISC opening ceremony" width="300" height="200"> <img src="figs/20241209-cyberport_aisc_ceremony_2.jpg" alt="SGPT on Cyberport's AISC opening ceremony" width="300" height="200"></p>
-<ul>
-<li><p>Nov. 23rd: SGPT, the first and only one hundreds-billions-parameters LLM, the work based on our collaboration with HKU, was introduced in 
-<a href="https://news.tvb.com/sc/programme/newsmagazine/6741922f72a46fa99e8bc1d3">TVB News</a>.</p>
-</li>
-</ul>
-<p><img src="figs/sgpt_on_tvb_1.jpg" alt="SGPT on TVB" width="300" height="180"> <img src="figs/sgpt_on_tvb_2.jpg" alt="SGPT on TVB" width="300" height="180"></p>
-<ul>
-<li><p>Sep. 24th: Receive SUAT delegation in HKU CS Department.
-<a href="https://mp.weixin.qq.com/s/eqTsSGOqqDeeAKKr--PG9A">(SUAT News)</a></p>
-</li>
-</ul>
-<p><img src="figs/20240924-receive_suat_1.jpg" alt="Receive SUAT" width="300" height="180"> <img src="figs/20240924-receive_suat_2.jpg" alt="Receive SUAT" width="300" height="180"></p>
-<ul>
-<li><p>Sep. 10th: Demo show as member of Hong Kong delegation in The 2024 National Cybersecurity Awareness Week (Guangzhou).</p>
-</li>
-</ul>
-<p><img src="figs/20240910-national_cybersecurity_week_1.jpg" alt="SGPT on Cybersecurity Week" width="300" height="200"> <img src="figs/20240910-national_cybersecurity_week_2.jpg" alt="SGPT on Cybersecurity Week" width="300" height="200"></p>
-<ul>
-<li><p>Aug. 26th: Presentation in HKU Techno-Entrepreneurship Academy Grand Opening.
-<a href="https://qh.sz.gov.cn/sygnan/qhzx/zthd_1/qhfa/content/post_11541477.html">(Qianhai News)</a></p>
-</li>
-</ul>
-<p><img src="figs/20240826-hku_tea_qianhai_1.jpg" alt="SGPT on HKU TEA Qianhai" width="300" height="200"> <img src="figs/20240826-hku_tea_qianhai_2.jpg" alt="SGPT on HKU TEA Qianhai" width="300" height="200"></p>
-<ul>
-<li><p>Jul. 4th &ndash; Jul. 7: Show in WAIC 2024, China.</p>
-</li>
-</ul>
-<p><img src="figs/waic_2024_1.jpg" alt="SGPT on TVB" width="300" height="200"> <img src="figs/waic_2024_2.jpg" alt="SGPT on TVB" width="300" height="200"></p>
-<ul>
-<li><p>Jun. 4th: Speak in SIAT, CAS.
-<a href="https://www.siat.ac.cn/xshd2016/202406/t20240604_7184358.html">(SIAT News)</a></p>
-</li>
-</ul>
-<p><img src="figs/20240604-speak_in_siat_1.jpg" alt="Speak in SIAT" width="300" height="200"> <img src="figs/20240604-speak_in_siat_2.jpg" alt="Speak in SIAT" width="300" height="200"></p>
-</div></div>
-<div id="footer">
-<div id="footer-text">
-Page generated 2024-12-11 22:24:07 CST, by <a href="http://jemdoc.jaboc.net/">jemdoc</a>.
-(<a href="index.jemdoc">source</a>)
-</div>
-</div>
-</td>
-</tr>
-</table>
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+        <button class="lang-btn active" onclick="switchLanguage('zh')">中文</button>
+        <button class="lang-btn" onclick="switchLanguage('en')">English</button>
+    </div>
+
+    <!-- Chinese Content -->
+    <div class="lang-content active" id="zh-content">
+        <header>
+            <div class="header-content">
+                <h1 class="name">宁立</h1>
+                <div class="title">人工智能研究者</div>
+                <div class="subtitle">香港大学计算机科学博士</div>
+            </div>
+            <div class="scroll-indicator"></div>
+        </header>
+
+        <section id="positions">
+            <div class="container">
+                <h2>现任职务</h2>
+                <div class="positions-grid">
+                    <div class="position-card">
+                        <div class="position-title">联合创始人 / CTO</div>
+                        <div class="position-org">Stellaris AI Limited<br>香港大学衍生公司</div>
+                    </div>
+                    <div class="position-card">
+                        <div class="position-title">发起人 / 主要开发者</div>
+                        <div class="position-org">Minecraft AI开源社区</div>
+                    </div>
+                    <div class="position-card">
+                        <div class="position-title">客座研究员</div>
+                        <div class="position-org">中国科学院</div>
+                    </div>
+                    <div class="position-card">
+                        <div class="position-title">主任</div>
+                        <div class="position-org">中国科学院深圳先进技术研究院<br>网络信息中心</div>
+                    </div>
+                    <div class="position-card">
+                        <div class="position-title">副研究员 / 博士生导师</div>
+                        <div class="position-org">高性能计算技术研究中心</div>
+                    </div>
+                    <div class="position-card">
+                        <div class="position-title">信息化项目负责人</div>
+                        <div class="position-org">深圳理工大学（筹备办）</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="container">
+                <h2>主要经历</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-title">授课专家</div>
+                            <div class="timeline-desc">香港大学DBA课程（金融管理博士）</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-title">组织主席</div>
+                            <div class="timeline-desc">COCOON国际计算与组合优化大会（2022）</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-title">程序委员会共同主席</div>
+                            <div class="timeline-desc">PDCAT-PAAP并行和分布式计算国际会议（2020）</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-title">程序委员会委员</div>
+                            <div class="timeline-desc">WASA无线网络架构与算法国际会议（2020）</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-title">组织主席</div>
+                            <div class="timeline-desc">ACM-ICPC国际大学生程序设计竞赛（2019）香港站</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-title">副研究员</div>
+                            <div class="timeline-desc">电子科技大学（深圳）高等研究院</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-title">理事、监事</div>
+                            <div class="timeline-desc">深圳市高校教育信息化学会</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-title">委员</div>
+                            <div class="timeline-desc">深圳市龙华区政协（第一届）</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-title">副主任</div>
+                            <div class="timeline-desc">深圳市龙华区数字经济委员会</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2>重点项目</h2>
+                <div class="project-cards">
+                    <div class="project-card">
+                        <div class="project-name">Stellaris AI</div>
+                        <div class="project-desc">
+                            Stellaris AI是一家专注于生成式人工智能技术研发和应用的香港大学衍生公司，于2023年5月10日在香港大学发布了香港地区自主研发的首个千亿参数级别通用大语言模型 - SGPT。当前，SGPT系列大语言模型的最新产品SGPT-3.0在多项主流评测指标已达到国际领先水平。其采用的内生安全技术，实现了基于模型层的生成内容安全性保障，可以为各类应用提供了更加安全和稳定的底层技术支撑。
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-name">Minecraft AI 开源社区</div>
+                        <div class="project-desc">
+                            旨在基于Minecraft虚拟环境构建面向具身智能图灵测试的实验平台，重点探索AIC（AI Character）记忆系统、行动规划机制等具身智能核心技术。同时合作开展教学、科普、研究与技术交流，与开源中国等伙伴共同推动涵盖大模型架构、训练、优化和智能体构建的生成式人工智能技术和应用普及，与开发者和科研工作者共同创建先进、开放的前沿技术创新和共享生态。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="awards">
+            <div class="container">
+                <h2>获奖经历</h2>
+                <div class="awards-list">
+                    <div class="award-item">深圳市科技进步一等奖</div>
+                    <div class="award-item">广东省机械工业科学技术二等奖</div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 宁立. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- English Content -->
+    <div class="lang-content" id="en-content">
+        <header>
+            <div class="header-content">
+                <h1 class="name">Dr. Li Ning</h1>
+                <div class="title">AI Researcher</div>
+                <div class="subtitle">Ph.D. in Computer Science, The University of Hong Kong</div>
+            </div>
+            <div class="scroll-indicator"></div>
+        </header>
+
+        <section id="positions-en">
+            <div class="container">
+                <h2>Current Positions</h2>
+                <div class="positions-grid">
+                    <div class="position-card">
+                        <div class="position-title">Co-Founder / CTO</div>
+                        <div class="position-org">Stellaris AI Limited<br>HKU Spin-Off Company</div>
+                    </div>
+                    <div class="position-card">
+                        <div class="position-title">Founder / Lead Developer</div>
+                        <div class="position-org">Minecraft AI Open Source Community</div>
+                    </div>
+                    <div class="position-card">
+                        <div class="position-title">Guest Researcher</div>
+                        <div class="position-org">Chinese Academy of Sciences</div>
+                    </div>
+                    <div class="position-card">
+                        <div class="position-title">Director</div>
+                        <div class="position-org">Network Information Center<br>Shenzhen Institute of Advanced Technology, CAS</div>
+                    </div>
+                    <div class="position-card">
+                        <div class="position-title">Associate Researcher / Ph.D. Supervisor</div>
+                        <div class="position-org">High Performance Computing Research Center</div>
+                    </div>
+                    <div class="position-card">
+                        <div class="position-title">IT Project Leader</div>
+                        <div class="position-org">Shenzhen University of Technology (Preparatory Office)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience-en">
+            <div class="container">
+                <h2>Professional Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-title">Teaching Expert</div>
+                            <div class="timeline-desc">DBA Program (Financial Management), The University of Hong Kong</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-title">Organizing Chair</div>
+                            <div class="timeline-desc">COCOON International Conference (2022)</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-title">Program Co-Chair</div>
+                            <div class="timeline-desc">PDCAT-PAAP International Conference (2020)</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-title">Program Committee Member</div>
+                            <div class="timeline-desc">WASA International Conference (2020)</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-title">Organizing Chair</div>
+                            <div class="timeline-desc">ACM-ICPC Hong Kong Site (2019)</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-title">Associate Researcher</div>
+                            <div class="timeline-desc">Institute for Advanced Study, UESTC (Shenzhen)</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-title">Director & Supervisor</div>
+                            <div class="timeline-desc">Shenzhen Higher Education Informatization Society</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-title">Committee Member</div>
+                            <div class="timeline-desc">CPPCC Longhua District, Shenzhen (1st Session)</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-title">Deputy Director</div>
+                            <div class="timeline-desc">Digital Economy Committee, Longhua District, Shenzhen</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects-en">
+            <div class="container">
+                <h2>Key Projects</h2>
+                <div class="project-cards">
+                    <div class="project-card">
+                        <div class="project-name">Stellaris AI</div>
+                        <div class="project-desc">
+                            Stellaris AI is an HKU spin-off company focused on generative AI research and applications. On May 10, 2023, it launched SGPT, Hong Kong's first self-developed general-purpose large language model with hundreds of billions of parameters. The latest SGPT-3.0 has achieved international leading levels in multiple mainstream benchmarks. Its intrinsic safety technology provides content security at the model level, offering safer and more stable technical support for various applications.
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-name">Minecraft AI Community</div>
+                        <div class="project-desc">
+                            Aims to build an experimental platform for embodied intelligence Turing tests based on Minecraft virtual environment, focusing on core technologies such as AIC (AI Character) memory systems and action planning mechanisms. Collaborates on education, outreach, research and technical exchange, partnering with Open Source China and others to promote generative AI technologies covering large model architecture, training, optimization and agent construction, creating an advanced, open ecosystem for frontier technology innovation and sharing with developers and researchers.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="awards-en">
+            <div class="container">
+                <h2>Awards & Honors</h2>
+                <div class="awards-list">
+                    <div class="award-item">First Prize in Scientific and Technological Progress, Shenzhen</div>
+                    <div class="award-item">Second Prize in Science and Technology, Guangdong Machinery Industry</div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 Dr. Li Ning. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Language switching
+        function switchLanguage(lang) {
+            const zhContent = document.getElementById('zh-content');
+            const enContent = document.getElementById('en-content');
+            const langBtns = document.querySelectorAll('.lang-btn');
+
+            if (lang === 'zh') {
+                zhContent.classList.add('active');
+                enContent.classList.remove('active');
+                langBtns[0].classList.add('active');
+                langBtns[1].classList.remove('active');
+                document.documentElement.lang = 'zh-CN';
+            } else {
+                zhContent.classList.remove('active');
+                enContent.classList.add('active');
+                langBtns[0].classList.remove('active');
+                langBtns[1].classList.add('active');
+                document.documentElement.lang = 'en';
+            }
+
+            // Reset scroll animations for new content
+            setTimeout(() => {
+                const sections = document.querySelectorAll('.lang-content.active section');
+                sections.forEach(section => {
+                    section.classList.remove('visible');
+                });
+                observeSections();
+            }, 100);
+        }
+
+        // Intersection Observer for scroll animations
+        function observeSections() {
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: '0px 0px -80px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            const activeSections = document.querySelectorAll('.lang-content.active section');
+            activeSections.forEach(section => {
+                observer.observe(section);
+            });
+        }
+
+        // Initialize on page load
+        window.addEventListener('load', () => {
+            observeSections();
+        });
+
+        // Parallax effect for header
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrolled = window.pageYOffset;
+                    const headers = document.querySelectorAll('header');
+                    headers.forEach(header => {
+                        if (header.closest('.lang-content.active')) {
+                            header.style.transform = `translateY(${scrolled * 0.4}px)`;
+                            header.style.opacity = 1 - (scrolled / 800);
+                        }
+                    });
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Smooth scrolling
+        document.addEventListener('click', (e) => {
+            if (e.target.matches('a[href^="#"]')) {
+                e.preventDefault();
+                const target = document.querySelector(e.target.getAttribute('href'));
+                if (target && target.closest('.lang-content.active')) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
+    </script>
 </body>
 </html>
