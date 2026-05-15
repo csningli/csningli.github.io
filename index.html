@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="rss.xml">
 
     <style>
         :root {
@@ -184,7 +185,7 @@
         }
 
         .blog-list {
-            max-height: 400px;
+            max-height: 210px;
             overflow-y: auto;
             border: 1px solid #eaeaea;
             border-radius: 10px;
@@ -344,7 +345,7 @@
                     return;
                 }
                 list.innerHTML = blogs.map(b => {
-                    const title = b.file.replace(/-/g, ' ');
+                    const title = b.title || b.file.replace(/-/g, ' ');
                     return `<a href="blogs/${b.file}.html" class="blog-item" target="_blank">
                         <span class="title">${title}</span>
                         <span class="play">
