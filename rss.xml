@@ -5,8 +5,15 @@
     <link>https://csningli.github.io</link>
     <description>Blog posts by Dr. Liam Ning on AI, AGI, and technology.</description>
     <language>en</language>
-    <lastBuildDate>Fri, 15 May 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 21 May 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://csningli.github.io/rss.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Limits of Small Models</title>
+      <link>https://csningli.github.io/blogs/20260521-small-models.html</link>
+      <guid>https://csningli.github.io/blogs/20260521-small-models.html</guid>
+      <pubDate>Wed, 21 May 2026 00:00:00 GMT</pubDate>
+      <description>Exploring whether small language and vision models are sufficient for coding agents and practical multimodal tasks.</description>
+    </item>
     <item>
       <title>Understanding Vision Language Models</title>
       <link>https://csningli.github.io/blogs/20260515-vlm.html</link>

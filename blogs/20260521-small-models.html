@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Limits of Small Models - Dr. Liam Ning</title>
+    <meta name="description" content="Exploring whether small language and vision models are sufficient for coding agents and practical multimodal tasks.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --primary: #2F2F2F;
+            --secondary: #666666;
+            --subtle: #A0A0A0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.75;
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 2.5rem;
+            color: var(--subtle);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .back:hover {
+            color: var(--primary);
+        }
+
+        h1 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.4rem;
+            line-height: 1.2;
+        }
+
+        .date {
+            color: var(--subtle);
+            font-size: 0.85rem;
+            margin-bottom: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin: 2.5rem 0 0.75rem;
+            color: var(--primary);
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            color: var(--secondary);
+            font-size: 0.95rem;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        a:hover {
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <a href="/" class="back">&larr; Back</a>
+    <h1>The Limits of Small Models</h1>
+    <div class="date">May 21, 2026</div>
+
+    <p>The relentless scaling of large language models has produced remarkable capabilities, but it has also driven a parallel movement: the pursuit of small models that can run locally on consumer hardware. The question is no longer whether a 70B parameter model can code, but whether a 3B or 7B model can do enough of the work to justify abandoning the cloud. This post examines two specific frontiers: small models as coding agents, and small vision-language models as practical tools.</p>
+
+    <h2>Coding Agents on Local Hardware</h2>
+    <p>Modern small coding models, such as Qwen2.5-Coder, DeepSeek-Coder, and distilled variants of larger systems, have reached a threshold of competence that was unimaginable two years ago. For boilerplate generation, simple refactoring, autocompletion, and writing unit tests, a 7B parameter model running on a laptop GPU is often indistinguishable from its cloud-hosted counterpart. The latency is lower, the data never leaves the machine, and the cost per token is zero.</p>
+
+    <p>But coding is not merely text generation. An agent must plan, navigate a codebase, hold context across multiple files, debug errors iteratively, and know when it is wrong. These are reasoning tasks, and reasoning does not compress gracefully. Small models struggle with multi-step planning: they forget constraints between turns, hallucinate APIs that do not exist, and propose "fixes" that break other parts of the system. For a daily workflow of common tasks, such as writing a Python script, updating a configuration file, or scaffolding a React component, a local small model is genuinely sufficient. For architecture decisions, complex debugging, or cross-repository refactoring, it is not.</p>
+
+    <p>The pragmatic compromise emerging in the ecosystem is a tiered approach: small local models handle the high-volume, low-complexity interactions (completion, quick edits, documentation), while cloud APIs are reserved for the deep reasoning tasks. The small model acts as a fast filter and first draft; the large model acts as the validator and architect.</p>
+
+    <h2>The Value of a Small VLM</h2>
+    <p>Vision-language models have followed a similar trajectory. Small VLMs, in the 2B to 4B parameter range, can now perform OCR, describe images, answer simple visual questions, and parse document layouts with surprising accuracy. For tasks like extracting text from a screenshot, summarizing a chart, or describing a user interface, they are useful and economical.</p>
+
+    <p>Their value lies in bounded applications where latency and privacy matter more than depth. A small VLM running on-device can read a receipt, describe a product photo for accessibility, or verify that a UI element is present without sending pixels to a remote server. These are not trivial capabilities; they unlock real workflows in mobile apps, assistive technology, and industrial inspection.</p>
+
+    <p>Yet the limits are clear. Small VLMs fail at fine-grained spatial reasoning, struggle with complex multi-chart comparisons, hallucinate details in dense images, and lack the grounded understanding that larger models achieve through scale. They are useful, but they are not general-purpose visual reasoners. Their role is the same as that of small text models: specialized, local, fast, and narrow.</p>
+
+    <h2>Conclusion</h2>
+    <p>Small models have crossed the threshold from novelty to utility, but they have not crossed the threshold from utility to generality. A local coding agent powered by a 7B model is viable for daily common tasks, provided the user treats it as an accelerated assistant rather than an autonomous engineer. A small VLM is valuable for bounded visual tasks, provided the application does not require deep multimodal reasoning. The future is not small models replacing large ones, but small models absorbing the breadth of simple tasks so that large models can be reserved for the depth of hard ones.</p>
+</body>
+</html>
